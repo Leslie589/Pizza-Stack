@@ -112,7 +112,7 @@ font-style: oblique;
 @media screen and (max-width: 768px) {
   .container-h img {
     max-height: none;
-    height: 250px;
+    height: 200px;
     aspect-ratio: auto;
     object-fit: cover;
   }
@@ -402,7 +402,8 @@ h1 {
 .detalle .info ul {
   list-style: none;
   padding-left: 0;
-  margin-top: 12px;
+  margin-top: 28px;
+
 }
 
 .detalle .info ul li {
