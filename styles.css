@@ -109,6 +109,16 @@ font-style: oblique;
   display: block;
 }
 
+@media screen and (max-width: 768px) {
+  .container-h img {
+    max-height: none;
+    height: 250px;
+    aspect-ratio: auto;
+    object-fit: cover;
+  }
+}
+
+
 
 /*SUBMENU */
 .submenu {
