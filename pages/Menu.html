@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+  <title>Pizza Stack</title>
+</head>
+
+<body>
+  <script>
+    function showSection(section) {
+      const sections = ['pizza', 'pastas', 'complementos'];
+      sections.forEach(s => {
+        document.getElementById(s + '-section').style.display = (s === section) ? 'block' : 'none';
+      });
+    }
+  </script>
+
+
+  <!--Navbar-->
+  <nav class="navbar">
+    <div class="logo">Pizza Stack</div>
+    <button class="hamburger" aria-label="Abrir menú">
+      ☰
+    </button>
+    <div class="nav-items">
+      <a href="../index.html">Inicio</a>
+      <a href="Menu.html">Menú</a>
+      <a href="Acerca.html">Acerca de</a>
+      <a href="Contacto.html">Contacto</a>
+    </div>
+  </nav>
+
+
+  <!--Sub Menu-->
+
+  <div class="submenu">
+    <button onclick="showSection('pizza')"><i class="fa-solid fa-pizza-slice"></i> Pizzas</button>
+    <button onclick="showSection('pastas')"><i class="fa-solid fa-bowl-food"></i> Pastas</button>
+    <button onclick="showSection('complementos')"><i class="fa-solid fa-bowl-rice"></i> Complementos</button>
+      <button onclick="showSection('bebidas')"><i class="fa-solid fa-glass-water"></i> Bebidas</button>
+  </div>
+
+
+  <!--Menu-->
+  <div id="pizza-section">
+    <h1>Pizzas</h1><br>
+
+    <div class="container-menu">
+      <!-- Tarjeta 1 -->
+      <div class="card">
+        <img src="../img/pizzas/pizza de pepperoni.jpeg" alt="Pizza de Peperoni">
+        <div class="card-body">
+          <div class="card-title">Pizza de Pepperoni</div>
+          <a href="../detalle.html?tipo=pizza&producto=pizza_de_pepperoni" class="card-button">
+            Detalles <i class="fa-solid fa-utensils"></i>
+          </a>
+        </div>
+      </div>
+
+
+
+      <div class="card">
+        <img src="../img/pizzas/pizza hawainana.jpg" alt="Pizza hawaiana">
+        <div class="card-body">
+          <div class="card-title">Pizza Hawainana</div>
+          <a href="../detalle.html?tipo=pizza&producto=pizza_hawaiana" class="card-button">
+            Detalles <i class="fa-solid fa-utensils"></i>
+          </a>
+        </div>
+      </div>
+
+
+      <div class="card">
+        <img src="../img/pizzas/pizza 3 carnes.jpg" alt="Pizza de 3 carnes">
+        <div class="card-body">
+          <div class="card-title">Pizza de 3 Carnes</div>
+          <a href="../detalle.html?tipo=pizza&producto=pizza_3_carnes" class="card-button">
+            Detalles <i class="fa-solid fa-utensils"></i>
+          </a>
+        </div>
+      </div>
+
+
+      <div class="card">
+        <img src="../img/pizzas/pizza italiana.jpg" alt="Pizza italiana">
+        <div class="card-body">
+          <div class="card-title">Pizza Italiana</div>
+          <a href="../detalle.html?tipo=pizza&producto=pizza_italiana" class="card-button">
+            Detalles <i class="fa-solid fa-utensils"></i>
+          </a>
+        </div>
+      </div>
+
+
+      <div class="card">
+        <img src="../img/pizzas/pizza.png" alt="Pizza estilo chicago">
+        <div class="card-body">
+          <div class="card-title">Pizza Estilo Chicago</div>
+          <a href="../detalle.html?tipo=pizza&producto=pizza_estilo_chicago" class="card-button">
+            Detalles <i class="fa-solid fa-utensils"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="../img/pizzas/pizza de 4 quesos.webp" alt="Pizza 4 quesos">
+        <div class="card-body">
+          <div class="card-title">Pizza de 4 Quesos</div>
+          <a href="../detalle.html?tipo=pizza&producto=pizza_4_quesos" class="card-button">
+            Detalles <i class="fa-solid fa-utensils"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div id="pastas-section">
+    <h1>Pastas</h1><br>
+    <div class="container-menu">
+      <!-- Tarjeta 1 -->
+      <div class="card">
+        <img src="../img/pastas/bolonesa.avif" alt="Pasta Boloñesa">
+        <div class="card-body">
+          <div class="card-title">Pasta a la Boloñesa</div>
+          <a href="../detalle.html?tipo=pastas&producto=pasta_boloñesa" class="card-button">
+            Detalles <i class="fa-solid fa-utensils"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="../img/pastas/pasta con tomate.jpg" alt="Pasta con salsa de tomate">
+        <div class="card-body">
+          <div class="card-title">Pasta con salsa de Tomate</div>
+          <a href="../detalle.html?tipo=pastas&producto=pasta_con_salsa_de_tomate" class="card-button">
+            Detalles <i class="fa-solid fa-utensils"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="../img/pastas/mantequilla.jpg" alt="Pasta a la mantequilla">
+        <div class="card-body">
+          <div class="card-title">Pasta a la Mantequilla</div>
+          <a href="../detalle.html?tipo=pastas&producto=pasta_a_la_mantequilla" class="card-button">
+            Detalles <i class="fa-solid fa-utensils"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="complementos-section">
+
+    <h1>Complementos</h1><br>
+    <div class="container-menu">
+      <!-- Tarjeta 1 -->
+      <div class="card">
+        <img src="../img/complementos/bbq.jpg" alt="Alitas BBQ">
+        <div class="card-body">
+          <div class="card-title">Alitas BBQ</div>
+          <a href="../detalle.html?tipo=complementos&producto=alitas_bbq" class="card-button">
+            Detalles <i class="fa-solid fa-utensils"></i>
+          </a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="../img/complementos/alitasmango.jpg" alt="Alitas Mango Habanero">
+        <div class="card-body">
+          <div class="card-title">Alitas Mango Habanero</div>
+          <a href="../detalle.html?tipo=complementos&producto=alitas_mango_habanero" class="card-button">
+            Detalles <i class="fa-solid fa-utensils"></i>
+          </a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="../img/complementos/buffalo.jpg" alt="Alitas Buffalo">
+        <div class="card-body">
+          <div class="card-title">Alitas Buffalo</div>
+          <a href="../detalle.html?tipo=complementos&producto=alitas_buffalo" class="card-button">
+            Detalles <i class="fa-solid fa-utensils"></i>
+          </a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="../img/complementos/boneless bbq.jpg" alt="Boneless BBQ">
+        <div class="card-body">
+          <div class="card-title">Boneless BBQ</div>
+          <a href="../detalle.html?tipo=complementos&producto=boneless_bbq" class="card-button">
+            Detalles <i class="fa-solid fa-utensils"></i>
+          </a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="../img/complementos/boneless mango habanero.jpg" alt="Boneless Mango Habanero">
+        <div class="card-body">
+          <div class="card-title">Boneless Mango Habanero</div>
+          <a href="../detalle.html?tipo=complementos&producto=boneless_mango_habanero" class="card-button">
+            Detalles <i class="fa-solid fa-utensils"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="../img/complementos/boneless buffalo.jpg" alt="Boneless buffalo">
+        <div class="card-body">
+          <div class="card-title">Boneless Buffalo</div>
+          <a href="../detalle.html?tipo=complementos&producto=boneless_buffalo" class="card-button">
+            Detalles <i class="fa-solid fa-utensils"></i>
+          </a>
+        </div>
+      </div>
+
+
+      
+    </div>
+
+  </div>
+
+   <div id="bebidas-section">
+
+    <h1>Bebidas</h1><br>
+    <div class="container-menu">
+      <!-- Tarjeta 1 -->
+      <div class="card">
+        <img src="../img/complementos/lima-limon.png" alt="7 Up">
+        <div class="card-body">
+          <div class="card-title">7 Up 600 ml</div>
+          <p>Refresco sabor lima-limon de 600ml </p> <br>
+         <a href="" class="card-button">
+  <i class="fa-solid fa-glass-water"></i> $28
+</a>
+  </div>
+      </div>
+
+      <div class="card">
+        <img src="../img/complementos/manzana.jpg" alt="refresco manzanita">
+        <div class="card-body">
+          <div class="card-title">Manzanita Sol 600 ml</div>
+          
+                <p>Refresco de manzana 600ml </p> <br>
+         <a href="" class="card-button">
+  <i class="fa-solid fa-glass-water"></i> $28
+</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="../img/complementos/mirinda.webp" alt="refresco de naranja">
+        <div class="card-body">
+          <div class="card-title">Mirinda 600 ml</div>
+            <p>Refresco de naranja 600ml </p> <br>
+         <a href="" class="card-button">
+  <i class="fa-solid fa-glass-water"></i> $28
+</a>
+
+        </div>
+      </div>
+
+        <div class="card">
+        <img src="../img/complementos/pepsi.webp" alt="refresco de pepsi">
+        <div class="card-body">
+          <div class="card-title">Pepsi 600 ml</div>
+            <p>Refresco Pepsi de  600 ml </p> <br>
+         <a href="" class="card-button">
+  <i class="fa-solid fa-glass-water"></i> $28
+</a>
+
+        </div>
+      </div>
+         <div class="card">
+        <img src="../img/complementos/Pepsi2.webp" alt="refresco de pepsi 1.5l">
+        <div class="card-body">
+          <div class="card-title">Pepsi 1.5 L</div>
+            <p>Refresco Pepsi de 1 litro y medio </p> <br>
+         <a href="" class="card-button">
+  <i class="fa-solid fa-glass-water"></i> $37
+</a>
+
+        </div>
+      </div>
+
+     <div class="card">
+        <img src="../img/complementos/manzana2.jpg" alt="refresco de manzana 1.5l">
+        <div class="card-body">
+          <div class="card-title">Manzanita Sol 1.5 L</div>
+            <p>Refresco Manzanita Sol de 1 litro y medio </p> <br>
+         <a href="" class="card-button">
+  <i class="fa-solid fa-glass-water"></i> $37
+</a>
+
+        </div>
+      </div>
+
+
+      
+    </div>
+
+  </div>
+
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h5>&copy; 2025</h5>
+        <p>Leslie A. López</p>
+        <small>Todos los derechos reservados</small>
+      </div>
+      <div class="footer-column">
+        <h5>Contáctanos</h5>
+        <p>Comunícate con nosotros:</p>
+        <p>📞 (664) 318-5985</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.querySelector(".hamburger");
+    const navItems = document.querySelector(".nav-items");
+
+    hamburger.addEventListener("click", () => {
+      navItems.classList.toggle("active");
+      document.body.classList.toggle("menu-open");  // <-- MUY IMPORTANTE
+    });
+
+  </script>
+
+</body>
+
+</html>

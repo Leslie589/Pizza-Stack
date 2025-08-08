@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Pizza Stacl</title>
+  </head>
+  <body>
+
+    
+    <div class="detalle">
+      <img id="imagenProducto" src="" alt="Imagen del producto" />
+
+      <div class="info">
+        <h1 id="nombreProducto">Cargando...</h1>
+        <p id="descripcionProducto"></p>
+
+        <h3 id="tituloIngredientes">Ingredientes:</h3>
+        <ul id="ingredientesProducto"></ul>
+
+        <div class="tabla-precios">
+          <div class="fila encabezado">
+            <span class="tamano">Tamaño</span>
+            <span class="precio">Precio</span>
+          </div>
+          <p id="precioUnico" class="precio-unico"></p>
+          <div id="filasPrecios"></div>
+        </div>
+
+        <a id="producto" href="./pages/Menu.html">← Volver al menú</a>
+      </div>
+    </div>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const tipo = params.get("tipo");
+      const producto = params.get("producto");
+
+     const datosMenu = {
+  pizza: {
+    pizza_de_pepperoni: {
+      nombre: "Pizza de Pepperoni",
+      img: "./img/pizzas/pizza de pepperoni.jpeg",
+      ingredientes: ["Queso Mozzarella.", "Pepperoni.", "Salsa de Tomate."],
+      desc: [
+        `Comprueba que tenemos la mejor pizza de pepperoni 
+         de la región. Con nuestros ingredientes de primera calidad, 
+         tendrás una increíble satisfacción.`,
+      ],
+      tamano: ["Pizza Mediana.", "Pizza Grande.", "Súper Stack."],
+      precio: ["$89", "$99", "$299"],
+    },
+    pizza_hawaiana: {
+      nombre: "Pizza Hawaiana",
+      img: "./img/pizzas/pizza hawainana.jpg",
+      ingredientes: ["Queso Mozzarella.", "Piña.", "Jamón de Pavo."],
+      desc: [
+        `Para los amantes de la piña, les traemos nuestra pizza
+        hawaiana, la cual consta de queso mozzarella y jamón
+        de pavo. Producto selecto y fresco para tu consumo.`,
+      ],
+      tamano: ["Pizza Mediana.", "Pizza Grande.", "Súper Stack."],
+      precio: ["$89", "$99", "$299"],
+    },
+    pizza_3_carnes: {
+      nombre: "Pizza de 3 Carnes",
+      img: "./img/pizzas/pizza 3 carnes.jpg",
+      ingredientes: [
+        "Salsa de Tomate.",
+        "Queso Mozzarella.",
+        "Carne Molida.",
+        "Tocino.",
+        "Pepperoni.",
+      ],
+      desc: [
+        `La carne en nuestras pizzas hace la diferencia, ya
+         que nosotros nos encargamos de darle el sabor tan  
+         característico que tiene y que a nuestros clientes
+         les encanta.`,
+      ],
+      tamano: ["Pizza Mediana.", "Pizza Grande.", "Súper Stack."],
+      precio: ["$99", "$169", "$319"],
+    },
+    pizza_italiana: {
+      nombre: "Pizza Italiana",
+      img: "./img/pizzas/pizza italiana.jpg",
+      ingredientes: [
+        "Queso Mozzarella.",
+        "Salchicha Italiana.",
+        "Champiñones.",
+        "Pimientos Verdes y Cebolla.",
+      ],
+      desc: [
+        `Vegetales frescos, bastante queso, pepperoni y un poco
+         más de salchicha italiana: eso es lo que hace que nuestra
+         pizza destaque de las demás pizzas estilo italianas.`,
+      ],
+      tamano: ["Pizza Mediana.", "Pizza Grande.", "Súper Stack."],
+      precio: ["$100", "$120", "$320"],
+    },
+    pizza_estilo_chicago: {
+      nombre: "Pizza Estilo Chicago",
+      img: "./img/pizzas/pizza.png",
+      ingredientes: [
+        "Queso Mozzarella.",
+        "Salsa de Tomate.",
+        "Queso Parmesano.",
+      ],
+      desc: [
+        `Algo diferente que nos encanta. La pizza estilo Chicago:
+         ven y comprueba el sabor de nuestro pan horneado esponjoso
+         combinado con salsa de tomate y abundante queso que
+         te volará la cabeza.`,
+      ],
+      tamano: ["Pizza Mediana.", "Pizza Grande.", "Súper Stack."],
+      precio: ["$130", "$190", "$320"],
+    },
+    pizza_4_quesos: {
+      nombre: "Pizza de 4 Quesos",
+      img: "./img/pizzas/pizza de 4 quesos.webp",
+      ingredientes: [
+        "Queso Mozzarella.",
+        "Queso Ricotta.",
+        "Queso Parmesano.",
+        "Queso Philadelphia.",
+      ],
+      desc: [
+        `Nuestra pizza de 4 quesos es una explosión de sabores cremosos y deliciosos, con una combinación perfecta de 
+        quesos que se funden en cada bocado, creando una experiencia irresistible para los amantes del queso.`,
+      ],
+      tamano: ["Pizza Mediana.", "Pizza Grande.", "Súper Stack."],
+      precio: ["$130", "$190", "$320"],
+    },
+  },
+  pastas: {
+    pasta_boloñesa: {
+      nombre: "Pasta a la Boloñesa",
+      img: "./img/pastas/bolonesa.avif",
+      ingredientes: ["Salsa de Tomate.", "Carne Molida.", "Albahaca."],
+      desc: [
+        `Pasta con abundante salsa de tomate y bolitas 
+         de carne molida preparada en casa, que te hará sentir el verdadero sabor de Italia.`,
+      ],
+      tamano: ["Individual.", "Familiar."],
+      precio: ["$90", "$140"],
+    },
+    pasta_con_salsa_de_tomate: {
+      nombre: "Pasta con Salsa de Tomate",
+      img: "./img/pastas/pasta con tomate.jpg",
+      ingredientes: [
+        "Salsa casera de tomate natural.",
+        "Queso Parmesano.",
+        "Albahaca."
+      ],
+      desc: [
+        `Una pasta que resalta los sabores frescos 
+         del tomate y las hierbas, perfecta para los amantes de lo natural.`,
+      ],
+      tamano: ["Individual.", "Familiar."],
+      precio: ["$70", "$120"],
+    },
+    pasta_a_la_mantequilla: {
+      nombre: "Pasta a la Mantequilla",
+      img: "./img/pastas/mantequilla.jpg",
+      ingredientes: ["Mantequilla.", "Tocino.", "Perejil."],
+      desc: [
+        `Pasta de textura suave con mantequilla y un
+         toque de tocino. Ideal para acompañar con una buena pizza con mucho queso.`,
+      ],
+      tamano: ["Individual.", "Familiar."],
+      precio: ["$60", "$100"],
+    },
+  },
+  complementos: {
+    alitas_bbq: {
+      nombre: "Alitas BBQ",
+      img: "./img/complementos/bbq.jpg",
+      ingredientes: ["Salsa BBQ.", "Apio y zanahorias.", "Aderezo ranch."],
+      desc: [
+        `Aderezadas con nuestra salsa BBQ, nuestras alitas
+         harán que quieras probarlas una y otra vez.`,
+      ],
+      tamano: ["Individual 6pz", "Clasico 12pz"],
+      precio: ["$70", "$140"],
+    },
+    alitas_mango_habanero: {
+      nombre: "Alitas Mango Habanero",
+      img: "./img/complementos/alitasmango.jpg",
+      ingredientes: ["Salsa Mango Habanero.", "Apio y zanahorias.", "Aderezo ranch."],
+      desc: [
+        `Un sabor dulce pero a la vez picante es la característica de
+         nuestras alitas Mango Habanero. Nuestra salsa hecha al
+         día con un toque agridulce hará estallar tus sentidos gustativos.`,
+      ],
+      tamano: ["Individual 6pz", "Clasico 12pz"],
+      precio: ["$70", "$140"],
+    },
+     
+    alitas_buffalo: {
+      nombre: "Alitas Buffalo",
+      img: "./img/complementos/buffalo.jpg",
+      ingredientes: ["Salsa Buffalo.", "Apio y zanahorias.", "Aderezo ranch."],
+      desc: [
+        `Alitas jugosas bañadas en nuestra auténtica salsa Buffalo: 
+        el balance perfecto entre picante y sabor.`,
+      ],
+      tamano: ["Individual 6pz", "Clasico 12pz"],
+      precio: ["$70", "$140"],
+    },
+
+
+    boneless_bbq: {
+      nombre: "Boneless BBQ",
+      img: "./img/complementos/boneless bbq.jpg",
+      ingredientes: ["Salsa BBQ.", "Apio y zanahorias.", "Aderezo ranch."],
+      desc: [
+        `Aderezados con nuestra irresistible salsa BBQ, nuestros Boneless son jugosos, tiernos y llenos de sabor en cada bocado. Perfectos para compartir o disfrutar solos, te garantizan una experiencia única que te hará querer 
+        repetir una y otra vez. 
+        ¡Déjate conquistar por el 
+        auténtico sabor que solo nuestros Boneless pueden ofrecer!`,
+      ],
+      tamano: ["Individual 6pz", "Clasico 12pz"],
+      precio: ["$70", "$140"],
+    },
+  boneless_mango_habanero: {
+      nombre: "Boneless Mango Habanero",
+      img: "./img/complementos/boneless mango habanero.jpg",
+      ingredientes: ["Salsa Mango Habanero.", "Apio y zanahorias.", "Aderezo ranch."],
+      desc: [
+        `Nuestros Boneless Mango Habanero ofrecen una experiencia única gracias a su salsa fresca y casera, que mezcla la intensidad del chile habanero con un delicado 
+        toque dulce. Cada bocado es
+         una aventura de sabores contrastantes que te invita a seguir disfrutando."`,
+      ],
+      tamano: ["Individual 6pz", "Clasico 12pz"],
+      precio: ["$70", "$140"],
+    },
+  boneless_buffalo: {
+      nombre: "Boneless Buffalo",
+      img: "./img/complementos/boneless buffalo.jpg",
+      ingredientes: ["Salsa Buffalo.", "Apio y zanahorias.", "Aderezo ranch."],
+      desc: [
+        `Siente el auténtico poder del picante con nuestro boneless Buffalo, aderezados con una salsa vibrante que enciende tu paladar. Perfectos para quienes
+         buscan ese toque intenso y lleno 
+         de sabor que hace que cada bocado
+          sea una experiencia inolvidable.`,
+      ],
+      tamano: ["Individual 6pz", "Clasico 12pz"],
+      precio: ["$70", "$140"],
+    },
+
+  },
+};
+
+
+      const nombre = document.getElementById("nombreProducto");
+      const descripcion = document.getElementById("descripcionProducto");
+      const imagen = document.getElementById("imagenProducto");
+      const ingredientes = document.getElementById("ingredientesProducto");
+      const tituloIngredientes = document.getElementById("tituloIngredientes");
+
+      const filasPrecios = document.getElementById("filasPrecios");
+
+      if (datosMenu[tipo] && datosMenu[tipo][producto]) {
+        const item = datosMenu[tipo][producto];
+        nombre.textContent = item.nombre;
+        descripcion.textContent = item.desc ? item.desc[0] : "Sin descripción.";
+
+        if (item.img) {
+          imagen.src = item.img;
+          imagen.style.display = "block";
+        }
+
+        if (item.ingredientes && item.ingredientes.length > 0) {
+          tituloIngredientes.style.display = "block";
+          item.ingredientes.forEach((ing) => {
+            const li = document.createElement("li");
+            li.textContent = ing;
+            ingredientes.appendChild(li);
+          });
+        }
+
+        if ( item.tamano && item.precio && item.tamano.length === item.precio.length) 
+        {
+          item.tamano.forEach((t, i) => {
+            const fila = document.createElement("div");
+            fila.className = "fila";
+
+            const spanTamano = document.createElement("span");
+            spanTamano.className = "tamano";
+            spanTamano.textContent = t;
+
+            const spanPrecio = document.createElement("span");
+            spanPrecio.className = "precio";
+            spanPrecio.textContent = item.precio[i];
+
+            fila.appendChild(spanTamano);
+            fila.appendChild(spanPrecio);
+            filasPrecios.appendChild(fila);
+          });
+        }
+      } else {
+        nombre.textContent = "Producto no encontrado";
+        descripcion.textContent =
+          "El producto que estás buscando no está disponible.";
+      }
+    </script>
+
+         <!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-column">
+      <h5>&copy; 2025</h5> <p>Leslie A. López</p>
+      <small>Todos los derechos reservados</small>
+    </div>
+
+    <div class="footer-column">
+      <h5>Contáctanos</h5>
+      <p>Comunícate con nosotros:</p>
+      <p>📞 (664) 318-5985</p>
+    </div>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <title>Pizza Stack</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+
+  <!--Navbar-->
+  <nav class="navbar">
+    <div class="logo">Pizza Stack</div>
+    <button class="hamburger" aria-label="Abrir menú">
+      ☰
+    </button>
+    <div class="nav-items">
+      <a href="index.html">Inicio</a>
+      <a href="./pages/Menu.html">Menú</a>
+      <a href="./pages/Acerca.html">Acerca de</a>
+      <a href="./pages/Contacto.html">Contacto</a>
+    </div>
+  </nav>
+
+  <!--Header-->
+  <div class="page-container">
+    <div class="container-h">
+      <img
+        src="https://img.cdn4dd.com/p/fit=cover,width=1200,height=600,format=auto,quality=90/media/photosV2/ad65d86b-0d55-4538-b0f1-7ce0cfea5d96-retina-large.JPG"
+        alt=" pizza">
+    </div>
+
+  </div>
+
+  <!--Acerca de -->
+  <div class="acerca-section">
+    <div class="acerca-img">
+      <img src="./img/piz.jpg" alt="Pizza artesanal de Pizzería Galgos" />
+    </div>
+
+    <div class="acerca-texto">
+      <h2>Pizza Stack</h2>
+      <p>
+        Preparensen para recibir deliciosos sabores y aromas en un ambiente agradable,
+        todo enmarcado para brindarle un servicio excepcional.
+      </p>
+      <p>
+        Nuestras pizzas artesanales están hechas con ingredientes frescos y pasión, para que disfrute momentos
+        inolvidables con familia y amigos.
+      </p>
+      <a href="Menu.html" class="btn-ver-menu">Ver nuestro menú</a>
+    </div>
+  </div>
+
+
+
+  <!--Resenas-->
+  <section class="resenas-section">
+    <h2>Lo que dicen nuestros clientes</h2>
+    <div class="resenas-container">
+      <div class="resena">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Cliente 1">
+        <h3>María G.</h3>
+        <p>¡Las pizzas de Pizza Stack son las mejores! La masa es crujiente y los ingredientes frescos. Siempre vuelvo
+          por más.</p>
+      </div>
+      <div class="resena">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Cliente 2">
+        <h3>Carlos M.</h3>
+        <p>Excelente ambiente y atención. Ideal para salir con amigos y disfrutar de una buena pizza artesanal. ¡Muy
+          recomendado!</p>
+      </div>
+      <div class="resena">
+        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Cliente 3">
+        <h3>Laura P.</h3>
+        <p>Me encanta la atención personalizada y la variedad de ingredientes frescos. Siempre es mi lugar favorito para
+          cenar.</p>
+      </div>
+    </div>
+    </div>
+  </section>
+
+
+  <!--Contacto -->
+  <div class="contacto">
+    <div class="contacto-texto">
+      <h2>🍕 ¡Estamos aquí para servirte como tú prefieras!</h2>
+      <p>
+        En <strong>Pizza Stack</strong>, tú decides cómo disfrutar nuestras pizzas:<br>
+        en la comodidad de nuestras mesas o relajado en casa.<br>
+        ¡Queremos que tu única preocupación sea cuál sabor elegir! 🍕🔥
+      </p>
+    </div>
+
+    <div class="contacto-contenido">
+      <div class="contacto-mapa">
+        <iframe src="https://www.google.com/maps/embed?pb=..." allowfullscreen="" loading="lazy">
+        </iframe>
+      </div>
+
+      <div class="contacto-direccion">
+        <h3><i class="fas fa-map-marker-alt"></i> Visítanos</h3>
+        <p><strong>Dirección:</strong><br>
+          Calle Pizza 123<br>
+          Zona Sur, Tijuana, BC
+        </p>
+        <p><strong>Teléfono:</strong><br>
+          (664) 123-4567
+        </p>
+        <p><strong>Horario:</strong><br>
+           Lunes a Sabado<br>
+          11:00 am - 9:00 pm
+        </p>
+      </div>
+    </div>
+
+    <!-- Buzon -->
+    <section class="buzon-wrapper">
+      <h2 class="buzon-titulo">📬 ¿Tienes algún comentario o sugerencia?</h2>
+      <p class="buzon-descripcion">
+        Nos encantaría saber tu opinión. Podrías ayudanos a llenar el siguiente formulario.
+      </p>
+
+      <div class="buzon-container">
+        <form>
+          <div class="buzon-nombre">
+            <input type="text" placeholder="Tu nombre" required>
+          </div>
+          <div class="buzon-mensaje">
+            <input type="text" placeholder="Escribe tu mensaje..." required>
+          </div>
+          <button type="submit" class="btn-enviar">Enviar</button>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h5>&copy; 2025</h5>
+        <p>Leslie A. López</p>
+        <small>Todos los derechos reservados</small>
+      </div>
+
+      <div class="footer-column">
+        <h5>Contáctanos</h5>
+        <p>Comunícate con nosotros:</p>
+        <p>📞 (664) 318-5985</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    const hamburger = document.querySelector(".hamburger");
+    const navItems = document.querySelector(".nav-items");
+
+    hamburger.addEventListener("click", () => {
+      navItems.classList.toggle("active");
+      document.body.classList.toggle("menu-open");  // <-- MUY IMPORTANTE
+    });
+
+
+    
+  // Script para mostrar alerta SweetAlert al enviar el formulario del buzón
+  const buzonForm = document.querySelector(".buzon-container form");
+
+  buzonForm.addEventListener("submit", function (event) {
+    event.preventDefault(); // Evita recargar la página
+
+    // Mostrar alerta con SweetAlert2
+    Swal.fire({
+      icon: 'success',
+      title: '¡Mensaje enviado!',
+      text: 'Gracias por tu comentario. Lo hemos recibido con éxito.',
+      confirmButtonColor: '#f4623a'
+    });
+
+    // Limpiar el formulario
+    buzonForm.reset();
+  });
+  </script>
+
+
+</body>
+
+</html>

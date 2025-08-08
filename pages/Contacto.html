@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+   <link rel=" stylesheet" href="../styles.css">
+  <title>Pizza Stack</title>
+</head>
+
+<body>
+
+  <!--Navbar-->
+  <nav class="navbar">
+    <div class="logo">Pizza Stack</div>
+    <button class="hamburger" aria-label="Abrir menú">
+      ☰
+    </button>
+    <div class="nav-items">
+      <a href="../index.html">Inicio</a>
+      <a href="Menu.html">Menú</a>
+      <a href="Acerca.html">Acerca de</a>
+      <a href="Contacto.html">Contacto</a>
+    </div>
+  </nav>
+
+
+  <!--Contacto-->
+
+
+  <div class="contacto">
+    <div class="contacto-texto">
+      <h2>🍕 ¡Estamos aquí para servirte como tú prefieras!</h2>
+      <p>
+        En <strong>Pizza Stack</strong>, tú decides cómo disfrutar nuestras pizzas:<br>
+        en la comodidad de nuestras mesas o relajado en casa.<br>
+        ¡Queremos que tu única preocupación sea cuál sabor elegir! 🍕🔥
+      </p>
+    </div>
+
+    <div class="contacto-contenido">
+      <div class="contacto-mapa">
+        <iframe src="https://www.google.com/maps/embed?pb=..." allowfullscreen="" loading="lazy">
+        </iframe>
+      </div>
+
+      <div class="contacto-direccion">
+        <h3><i class="fas fa-map-marker-alt"></i> Visítanos</h3>
+        <p><strong>Dirección:</strong><br>
+          Calle Pizza 123<br>
+          Zona Sur, Tijuana, BC
+        </p>
+        <p><strong>Teléfono:</strong><br>
+          (664) 123-4567
+        </p>
+        <p><strong>Horario:</strong><br>
+          Lunes a Sabado<br>
+          11:00 am - 9:00 pm
+        </p>
+      </div>
+    </div>
+
+    <!-- Buzon -->
+    <section class="buzon-wrapper">
+      <h2 class="buzon-titulo">📬 ¿Tienes algún comentario o sugerencia?</h2>
+      <p class="buzon-descripcion">
+        Nos encantaría saber tu opinión. Podrías ayudanos a llenar el siguiente formulario.
+      </p>
+
+      <div class="buzon-container">
+        <form>
+          <div class="buzon-nombre">
+            <input type="text" placeholder="Tu nombre" required>
+          </div>
+          <div class="buzon-mensaje">
+            <input type="text" placeholder="Escribe tu mensaje..." required>
+          </div>
+          <button type="submit" class="btn-enviar">Enviar</button>
+        </form>
+      </div>
+    </section>
+  </div>
+
+
+
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h5>&copy; 2025</h5>
+        <p>Leslie A. López</p>
+        <small>Todos los derechos reservados</small>
+      </div>
+
+      <div class="footer-column">
+        <h5>Contáctanos</h5>
+        <p>Comunícate con nosotros:</p>
+        <p>📞 (664) 318-5985</p>
+      </div>
+    </div>
+  </footer>
+  </section>
+  <script>
+    const hamburger = document.querySelector(".hamburger");
+    const navItems = document.querySelector(".nav-items");
+
+    hamburger.addEventListener("click", () => {
+      navItems.classList.toggle("active");
+      document.body.classList.toggle("menu-open");  // <-- MUY IMPORTANTE
+    });
+
+    
+  // 💌 Script para mostrar alerta SweetAlert al enviar el formulario del buzón
+  const buzonForm = document.querySelector(".buzon-container form");
+
+  buzonForm.addEventListener("submit", function (event) {
+    event.preventDefault(); // Evita recargar la página
+
+    // Mostrar alerta con SweetAlert2
+    Swal.fire({
+      icon: 'success',
+      title: '¡Mensaje enviado!',
+      text: 'Gracias por tu comentario. Lo hemos recibido con éxito.',
+      confirmButtonColor: '#f4623a'
+    });
+
+    // Limpiar el formulario
+    buzonForm.reset();
+  });
+
+  </script>
+</body>
+
+</html>
