@@ -23,6 +23,7 @@ body {
   
 }
 
+
 /* ========== Navbar ========== */
 /* Navbar base */
 .navbar {
@@ -46,10 +47,16 @@ body {
   font-weight: 900;
   color: var(--primary-color);
   letter-spacing: 1px;
-font-style: oblique;
+  font-style: oblique;
 }
 
-/* Menú normal */
+/* Agrupa logo + hamburguesa */
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+/* Menú horizontal (desktop) */
 .nav-items {
   display: flex;
   gap: 3px;
@@ -71,53 +78,120 @@ font-style: oblique;
   color: var(--primary-color);
 }
 
-/* Botón hamburguesa */
+/* Botón hamburguesa (oculto por defecto) */
 .hamburger {
   display: none;
   font-size: 28px;
   background: none;
   border: none;
   cursor: pointer;
+  margin-left: 20px;
+}
+
+
+@media screen and (max-width: 768px) {
+  /* Mostrar menú en columna y empujando contenido */
+  .nav-items {
+    display: none;
+    flex-direction: column;
+    width: 100%;                /* ocupa todo el ancho */
+    background-color: #ffffff;
+    position: static;           /* quita absolute para empujar contenido */
+    padding: 15px 0;            /* padding decente para espacio */
+    box-shadow: var(--box-shadow);
+    border-top: 1px solid #eee; /* separa visualmente del navbar */
+    z-index: 999;
+  }
+
+  .nav-items.active {
+    display: flex;
+    color: var(--primary-color);
+  }
+
+  .nav-items a {
+    padding: 12px 24px;
+    font-size: 20px;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .nav-items a:hover {
+    background-color: var(--primary-color);
+    color: white;
+  }
+
+  .hamburger {
+    display: block;
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 20px;
+  }
+
+  /* Navbar en móvil: logo y hamburguesa alineados */
+  .navbar {
+    flex-direction: row;
+    align-items: center;
+    padding: 15px 20px;
+  }
+
+  .navbar-left {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* El padding-top del body para no ocultar contenido bajo navbar fijo */
+  body.menu-open {
+    padding-top: 150px; /* Ajusta este valor según el tamaño del menú abierto */
+    transition: padding-top 0.3s ease;
+  }
 }
 
 
 
 /* ========== Contenedores generales (contenedor de página, footer y header) ========== */
 .page-container,
-.footer-container,
-.container {
+.footer-container {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 20px; /* padding lateral consistente */
+  padding: 0 ; /* padding lateral consistente */
 }
 
 /* ========== Header / Imagen ========== */
-.container-h {
-  width: 100%;
-  max-width:  var(--max-width); 
-  margin: 80px auto 40px auto;
+.header-fullwidth {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  overflow: hidden;
 }
 
-.container-h img {
-  width: 100%;
-  max-height: 700px;
+.header-fullwidth img {
+  margin-top: auto;
+  width: 99%;
   height: auto;
-  object-fit: cover; /* Recorta de forma elegante */
-  aspect-ratio: 16 / 9; /* Mantiene relación panorámica */
-  border-radius: 8px;
-  box-shadow: 2px 4px 10px  var(--box-shadow);
-  display: block;
+  object-fit: fill;
+  max-height: 600px;
+  border-radius: 0; /* si quieres que no tenga bordes redondeados */
+  box-shadow: none; /* quita sombra si quieres */
 }
+
+
 
 @media screen and (max-width: 768px) {
-  .container-h img {
-    max-height: none;
-    height: 200px;
-    aspect-ratio: auto;
-    object-fit: cover;
-  }
-}
-
+.header-fullwidth img {
+      margin-top: auto;
+  width: 100%;
+  height: auto;
+  object-fit: fill;
+  max-height: 340px;
+  border-radius: 0; /* si quieres que no tenga bordes redondeados */
+  box-shadow: none; /* quita sombra si quieres */
+  }}
 
 
 /*SUBMENU */
@@ -662,6 +736,32 @@ font-size: clamp(1rem, 2.5vw, 1.6rem);
  
 }
 
+
+.acerca-section {
+  background-image: url("./img/Red\ Yellow\ Creative\ Pizza\ Stationery\ Page\ Border\ A4\ Document.gif"); /* Cambia esta URL por tu imagen */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 1;
+  border-radius: 15px;
+}
+
+.acerca-section::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(255, 255, 255, 0.7); /* capa translúcida blanca para contraste */
+  z-index: 0;
+  border-radius: 15px;
+}
+
+.acerca-section > * {
+  position: relative;
+  z-index: 2;
+}
+
 /*==Resena==*/
 .resenas-section {
   max-width: 1100px;
@@ -1018,41 +1118,3 @@ margin: 0 0 20px 0;
   }
 }
 
-
-@media screen and (max-width: 768px) {
-  .hamburger {
-    display: block;
-  }
-
-  .nav-items {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    background-color: #ffffff;
-    position: relative;
-    top: 0;
-    padding: 10px 0;
-    box-shadow: var(--box-shadow);
-
-  }
-
-  .nav-items.active {
-    display: flex;
-    color:var(--primary-color) ;
-  }
- 
-
-
-  .nav-items a {
-    padding: 15px;
-    text-align:left;
-    width: 100%;
-    margin-bottom: 10px;
-    font-size: 20px;
-  }
-
-  body.menu-open {
-    padding-top: 380px;
-    transition: padding-top 0.3s ease;
-  }
-}
