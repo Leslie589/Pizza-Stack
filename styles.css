@@ -265,6 +265,14 @@ font-size: 1.3rem;
     margin: 0;
   }
 }
+.servicio-domicilio-banner {
+  margin-top: 20px;
+  font-size: clamp(1rem, 2vw, 3rem);
+  color: black;
+  text-align: center;
+  padding: 9px;
+  font-weight: bold;
+}
 
 
 
