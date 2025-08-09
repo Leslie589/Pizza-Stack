@@ -90,37 +90,24 @@ body {
 
 
 @media screen and (max-width: 768px) {
-  /* Mostrar menú en columna y empujando contenido */
-  .nav-items {
-    display: none;
-    flex-direction: column;
-    width: 100%;                /* ocupa todo el ancho */
-    background-color: #ffffff;
-    position: static;           /* quita absolute para empujar contenido */
-    padding: 15px 0;            /* padding decente para espacio */
-    box-shadow: var(--box-shadow);
-    border-top: 1px solid #eee; /* separa visualmente del navbar */
-    z-index: 999;
+  /* Navbar layout en móvil */
+  .navbar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
   }
 
-  .nav-items.active {
+  .navbar-left {
     display: flex;
-    color: var(--primary-color);
-  }
-
-  .nav-items a {
-    padding: 12px 24px;
-    font-size: 20px;
-    text-align: left;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
-    margin-bottom: 8px;
-    border-radius: 6px;
-    border-bottom: 1px solid #eee;
-  }
-
-  .nav-items a:hover {
-    background-color: var(--primary-color);
-    color: white;
   }
 
   .hamburger {
@@ -129,29 +116,51 @@ body {
     background: none;
     border: none;
     cursor: pointer;
-    margin-left: 20px;
+    color:black;
   }
 
-  /* Navbar en móvil: logo y hamburguesa alineados */
-  .navbar {
-    flex-direction: row;
-    align-items: center;
-    padding: 15px 20px;
-  }
-
-  .navbar-left {
+  /* Menú desplegable debajo del navbar */
+  .nav-items {
+    display: none;
+    flex-direction: column;
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    background-color: #fff;
+    position: absolute;
+    top: 100%; /* Justo debajo del navbar */
+    left: 0;
+    padding: 15px 20px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    border-top: 1px solid #eee;
+    z-index: 999;
   }
 
-  /* El padding-top del body para no ocultar contenido bajo navbar fijo */
+  .nav-items.active {
+    display: flex;
+  }
+
+  .nav-items a {
+    font-size: 20px;
+    text-align: left;
+    width: 100%;
+    padding: 12px 10px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    border-bottom: 1px solid #eee;
+    color: black;
+  }
+
+  .nav-items a:hover {
+    background-color: #f0f0f0;;
+    color:var(--primary-color);
+  }
+
+  /* Para dejar espacio si el menú se abre (si usas JavaScript para aplicar esta clase) */
   body.menu-open {
-    padding-top: 150px; /* Ajusta este valor según el tamaño del menú abierto */
+    padding-top: 300px;
     transition: padding-top 0.3s ease;
   }
 }
+
 
 
 
@@ -1068,25 +1077,6 @@ margin: 0 0 20px 0;
 
 /* ========== Responsividad (Pantallas móviles) ========== */
 @media (max-width: 768px) {
-  /* Navbar móvil */
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 15px 20px;
-  }
-
-  .nav-items {
-    flex-direction: column;
-    width: 100%;
-    gap: 10px;
-    margin-top: 10px;
-  }
-
-  .nav-items a {
-    width: 100%;
-    padding: 12px 10px;
-  }
-
   /* Footer móvil */
   .footer-container {
     flex-direction: column;
