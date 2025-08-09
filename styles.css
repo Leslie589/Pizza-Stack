@@ -66,7 +66,7 @@ body {
 /* Enlaces */
 .nav-items a {
   text-decoration: none;
-  font-size: 27px;
+  font-size: 29px;
   color: var(--text-color);
   padding: 10px 18px;
   border-radius: 6px;
@@ -395,7 +395,7 @@ h1 {
 .detalle {
   display: flex;
   gap: 30px;
-  max-width: 1200px;
+  max-width: var(--max-width);
   margin: 15px auto;
   margin-bottom: 90px;
   padding: 40px;
@@ -655,16 +655,39 @@ h1 {
 
 /*========Acerca de ======== */
 .acerca-section {
-  display: flex;
+   display: flex;
   align-items: center;
   gap: 30px;
-  max-width: 1200px;
+  max-width: var(--max-width);
   margin: 50px auto 60px auto;
-  padding: 20px;
+ padding: 40px 20px; /* 60px arriba y abajo, 20px a los lados */
+  background-image: url("./img/Red\ Yellow\ Creative\ Pizza\ Stationery\ Page\ Border\ A4\ Document.gif"); /* Cambia esta URL por tu imagen */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 1;
+  border-radius: 15px;
 }
 
+.acerca-section::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(255, 255, 255, 0.692); /* capa translúcida blanca para contraste */
+  z-index: 0;
+  border-radius: 15px;
+}
+
+.acerca-section > * {
+  position: relative;
+  z-index: 2;
+}
+
+
 .acerca-img {
-  flex: 0 0 600px;
+  flex: 0 0 500px;
 }
 
 .acerca-img img {
@@ -681,8 +704,7 @@ h1 {
 
 .acerca-texto h2 {
   margin-bottom: 15px;
-font-size: clamp(2rem, 4vw, 3rem);
-
+ font-size: clamp(2rem, 4vw, 3rem);
   color:  var(--primary-color);
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-style: oblique;
@@ -737,30 +759,7 @@ font-size: clamp(1rem, 2.5vw, 1.6rem);
 }
 
 
-.acerca-section {
-  background-image: url("./img/Red\ Yellow\ Creative\ Pizza\ Stationery\ Page\ Border\ A4\ Document.gif"); /* Cambia esta URL por tu imagen */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-  z-index: 1;
-  border-radius: 15px;
-}
 
-.acerca-section::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(255, 255, 255, 0.7); /* capa translúcida blanca para contraste */
-  z-index: 0;
-  border-radius: 15px;
-}
-
-.acerca-section > * {
-  position: relative;
-  z-index: 2;
-}
 
 /*==Resena==*/
 .resenas-section {
@@ -847,7 +846,7 @@ font-size: clamp(1rem, 2.5vw, 1.6rem);
 /*======== Contacto ========*/
 
 .contacto {
-  max-width: 1200px;
+  max-width: var(--max-width);
   margin: 50px auto 40px auto;
   padding: 40px 30px;
   animation: fadeIn 1s ease-in-out;
@@ -864,7 +863,7 @@ font-size: clamp(1rem, 2.5vw, 1.6rem);
 }
 
 .contacto-texto h2 {
-  font-size: clamp(2.1rem, 4vw, 3rem);
+  font-size: clamp(2.1rem, 3vw, 4rem);
   margin-bottom: 20px;
   color: #aa5824;
   position: relative;
@@ -881,7 +880,7 @@ font-size: clamp(1rem, 2.5vw, 1.6rem);
 }
 
 .contacto-texto p {
- font-size: clamp(1.09rem, 2.5vw, 1.6rem);
+ font-size: clamp(1.09rem, 2vw, 1.4rem);
   line-height: 1.7;
   color: #555;
   max-width: 800px;
@@ -927,13 +926,13 @@ font-size: clamp(1rem, 2.5vw, 1.6rem);
 .contacto-direccion h3 {
 margin: 0 0 20px 0;
   color: #157347;
-  font-size: 1.5rem;
+  font-size: 1.9rem;
 
 }
 
 .contacto-direccion p {
   margin: 12px 0;
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: #444;
   line-height: 1.6;
 }
@@ -982,13 +981,13 @@ margin: 0 0 20px 0;
 }
 
 .buzon-titulo {
-   font-size: clamp(1.8rem, 4vw, 3rem);
+   font-size: clamp(1.8rem, 3vw, 4rem);
   margin-bottom: 30px;
   color: black; 
 }
 
 .buzon-descripcion {
- font-size: clamp(1.09em, 2.5vw, 1.6rem);
+ font-size: clamp(1.09rem, 2vw, 1.4rem);
   color: #555;
   margin-bottom: 20px;
 }
