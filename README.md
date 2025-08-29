@@ -46,12 +46,6 @@ Puedes ver la página web en funcionamiento aquí:
 <br>
 <br>
 
-**Contacto**
-
-<img width="800" height="600" alt="Home3" src="https://github.com/user-attachments/assets/63788b70-ea63-4544-a58e-fc80438deb6b" />
-
----
-
 ¡Menu!
 
 *Sección del menú con los productos disponibles.*
