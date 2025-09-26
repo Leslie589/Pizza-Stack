@@ -648,7 +648,7 @@ h1 {
 
 
   .detalle .info ul li::before {
-    left: 15%;
+    left: 10%;
     transform: translateX(-50%);
   }
 
